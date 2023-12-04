@@ -1,8 +1,18 @@
 import Carousel from "@/components/Carousel"
-import NavBar from "@/components/NavBar"
-export default function Content(){
+import { useEffect, useState } from "react"
+
+export default function Content() {
+    const [articles, setArticles] = useState()
+    const [currentSlideIndex, setCurrentSlideIndex] = useState(0)
+    useEffect(() => {
+        fetch('https://dev.to/api/articles?username=gereltuyamz')
+            .then(response => response.json())
+            .then(data => setArticles(data))
+    }, [])
+
     return <div className="flex flex-col gap-20">
-                <NavBar/>
-                <Carousel/>
-            </div>
+        {
+            articles && <Carousel data={articles[currentSlideIndex]} index={currentSlideIndex} function={setCurrentSlideIndex}/>
+        }
+    </div>
 }
