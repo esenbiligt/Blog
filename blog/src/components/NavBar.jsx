@@ -15,7 +15,7 @@ export default function NavBar(){
                 <a href="" className="font-light">Contact</a>
                 </div>
             <div className="bg-gray-100 rounded w-fit px-4 flex items-center">
-                <input type="text" id="search" placeholder="Search" className="bg-transparent h-full w-32" />
+                <input type="text" id="search" placeholder="Search" className="bg-transparent h-full w-32 border-none" />
                 <SearchIcon className="h-full"/>
             </div>
         </header>
