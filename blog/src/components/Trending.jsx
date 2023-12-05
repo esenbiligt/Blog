@@ -6,7 +6,7 @@ export default function Trending(props){
     return (
         <div className="w-full h-fit">
             <h2 className="font-bold text-xl tracking-wide mb-5">Trending</h2>
-            <div className="grid grid-cols-4 max-h-80 justify-between overflow-hidden w-full">
+            <div className="grid grid-cols-4 gap-10 max-h-80 justify-between overflow-hidden w-full">
                 {content}
             </div>
         </div>

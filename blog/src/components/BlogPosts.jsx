@@ -37,7 +37,7 @@ export default function BlogPosts(props){
             setCurrentTag(e.charAt(0).toLowerCase() + e.slice(1))
         }}>{e}</button>
     })
-    
+
     return (
         <div className="flex flex-col gap-5">
             <h2 className="font-bold text-xl tracking-wide">{tagTitle}</h2>
@@ -47,7 +47,7 @@ export default function BlogPosts(props){
                 </div>
                 <button>View All</button>
             </div>
-            <div className="grid grid-cols-3 gap-5 justify-between">
+            <div className="grid grid-cols-3 gap-10 justify-between">
                 {content}
             </div>
         </div>
