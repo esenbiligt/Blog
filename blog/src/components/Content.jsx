@@ -1,5 +1,6 @@
 import Carousel from "@/components/Carousel"
 import Trending from "./Trending"
+import BlogPosts from "./BlogPosts"
 import { useEffect, useState } from "react"
 
 export default function Content() {
@@ -19,6 +20,9 @@ export default function Content() {
         }
         {
             articles && <Trending data={articles} index={currentSlideIndex} function={setCurrentSlideIndex} length={articles.length}/>
+        }
+        {
+            articles && <BlogPosts data={articles} index={currentSlideIndex} function={setCurrentSlideIndex} length={articles.length}/>
         }
     </div>
 }
