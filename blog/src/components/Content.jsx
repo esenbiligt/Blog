@@ -1,4 +1,5 @@
 import Carousel from "@/components/Carousel"
+import Trending from "./Trending"
 import { useEffect, useState } from "react"
 
 export default function Content() {
@@ -10,9 +11,14 @@ export default function Content() {
             .then(data => setArticles(data))
     }, [])
 
-    return <div className="flex flex-col gap-20">
+    // const fetchData = async()
+
+    return <div className="flex flex-col gap-24">
         {
-            articles && <Carousel data={articles[currentSlideIndex]} index={currentSlideIndex} function={setCurrentSlideIndex}/>
+            articles && <Carousel data={articles[currentSlideIndex]} index={currentSlideIndex} function={setCurrentSlideIndex} length={articles.length}/>
+        }
+        {
+            articles && <Trending data={articles} index={currentSlideIndex} function={setCurrentSlideIndex} length={articles.length}/>
         }
     </div>
 }
