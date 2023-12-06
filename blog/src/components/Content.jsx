@@ -2,17 +2,22 @@ import Carousel from "@/components/Carousel"
 import Trending from "./Trending"
 import BlogPosts from "./BlogPosts"
 import { useEffect, useState } from "react"
+import axios from 'axios';
+
+const api = 'https://dev.to/api/articles?username=gereltuyamz';
 
 export default function Content() {
-    const [articles, setArticles] = useState()
+    const [articles, setArticles] = useState([])
     const [currentSlideIndex, setCurrentSlideIndex] = useState(0)
-    useEffect(() => {
-        fetch('https://dev.to/api/articles?username=gereltuyamz')
-            .then(response => response.json())
-            .then(data => setArticles(data))
-    }, [])
 
-    // const fetchData = async()
+    const getData  = async () => {
+        let res = await axios.get(api)
+        setArticles((prev) => [...prev, ...res.data])
+    }
+
+    useEffect(() => {
+        getData()
+    }, [])
 
     return <div className="flex flex-col gap-24">
         {
