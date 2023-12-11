@@ -17,7 +17,7 @@ export default function Content() {
         let res = await axios.get(api)
         if(res.data.length >= 1){
             setArticles(res.data)
-            console.log(articles)
+            // console.log(articles)
         }
         else{
             setArticles(false)
