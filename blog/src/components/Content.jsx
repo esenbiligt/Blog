@@ -4,7 +4,8 @@ import BlogPosts from "./BlogPosts"
 import { useEffect, useState, useRef } from "react"
 import axios from 'axios';
 
-const api = 'https://dev.to/api/articles?username=gereltuyamz';
+// const api = 'https://dev.to/api/articles?username=gereltuyamz';
+const api = 'https://dev.to/api/articles'
 
 // pagination
 
@@ -16,6 +17,7 @@ export default function Content() {
         let res = await axios.get(api)
         if(res.data.length >= 1){
             setArticles(res.data)
+            console.log(articles)
         }
         else{
             setArticles(false)
@@ -25,8 +27,6 @@ export default function Content() {
     useEffect(() => {
         getData()
     }, []);
-
-    console.log(articles)
 
     return <div className="flex flex-col gap-24">
         {

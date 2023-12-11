@@ -23,7 +23,7 @@ export default function BlogPosts(props) {
         <div className="flex flex-col gap-10">
             <h2 className="font-bold text-xl tracking-wide">{tagTitle}</h2>
             <div className="flex justify-between">
-                <TagButtons tags={tags} currentTag={currentTag} currentTagFunction={setCurrentTag}/>
+                <TagButtons tags={tags} currentTag={currentTag} currentTagFunction={setCurrentTag} setShowIndex={setShowIndex} length={props.length}/>
                 <div className="flex gap-5">
                     <button onClick={() => {
                         setShowIndex(Math.min(props.data.length / 2, 6));
@@ -39,7 +39,14 @@ export default function BlogPosts(props) {
                 <div className="grid grid-cols-3 gap-10">
                     {content}
                 </div>
-                {(currentTag == "all" && !allShown) && <button className="border border-gray-400 w-fit p-2 rounded text-gray-500" onClick={() => LoadMore(showIndex, setShowIndex, props.data.length, setAllShown)}>Load More</button>}
+                    {props.data.filter(e => {
+                        if(currentTag == "all"){
+                            return e
+                        }
+                        else{
+                            return e.tags.includes(currentTag)
+                        }
+                    }).length > showIndex && <button className="border border-gray-400 w-fit p-2 rounded text-gray-500" onClick={() => LoadMore(showIndex, setShowIndex, props.data.length, setAllShown)}>Load More</button>}
             </div>
         </div>
     )

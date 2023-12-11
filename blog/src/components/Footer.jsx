@@ -12,9 +12,9 @@ export default function Footer(){
                 </div>
             </div>
             <div className="flex flex-col gap-5">
-                <a href="" className="font-light">Home</a>
+                <a href="http://localhost:3000" className="font-light">Home</a>
                 <a href="" className="font-light">Blog</a>
-                <a href="" className="font-light">Contact</a>
+                <a href="http://localhost:3000/contact" className="font-light">Contact</a>
             </div>
             <div className="flex gap-5 mr-20">
                 <p>img</p>
