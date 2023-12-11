@@ -9,7 +9,6 @@ import LoadMore from "./functions/LoadMore";
 export default function BlogPosts(props) {
     const [currentTag, setCurrentTag] = useState(("all"))
     const [showIndex, setShowIndex] = useState(Math.min(props.length / 2, 6))
-    const [allShown, setAllShown] = useState(false)
 
     const tags = FindTags(props.data)
 
@@ -27,11 +26,9 @@ export default function BlogPosts(props) {
                 <div className="flex gap-5">
                     <button onClick={() => {
                         setShowIndex(Math.min(props.data.length / 2, 6));
-                        setAllShown(false)
                     }}>Collapse</button>
                     <button onClick={() => {
                         setShowIndex(props.data.length)
-                        setAllShown(true)
                     }}>View All</button>
                 </div>
             </div>
@@ -46,7 +43,7 @@ export default function BlogPosts(props) {
                         else{
                             return e.tags.includes(currentTag)
                         }
-                    }).length > showIndex && <button className="border border-gray-400 w-fit p-2 rounded text-gray-500" onClick={() => LoadMore(showIndex, setShowIndex, props.data.length, setAllShown)}>Load More</button>}
+                    }).length > showIndex && <button className="border border-gray-400 w-fit p-2 rounded text-gray-500" onClick={() => LoadMore(showIndex, setShowIndex, props.data.length)}>Load More</button>}
             </div>
         </div>
     )
